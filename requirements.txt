@@ -1,7 +1,7 @@
-streamlit
-pandas
-numpy
-plotly
-scikit-learn
-umap-learn
-pyarrow
+numpy>=1.24
+pandas>=2.0
+plotly>=5.18
+pyarrow>=12.0
+scikit-learn>=1.2
+streamlit>=1.33
+umap-learn>=0.5.5
