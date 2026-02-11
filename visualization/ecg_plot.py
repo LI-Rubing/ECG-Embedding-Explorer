@@ -19,10 +19,6 @@ def plot_ecg(
         cols=1,
         shared_xaxes=True,
         vertical_spacing=0.02,
-        subplot_titles=[
-            lead_names[idx] if idx < len(lead_names) else f"Lead {idx + 1}"
-            for idx in range(n_leads)
-        ],
     )
     for idx in range(n_leads):
         fig.add_trace(
@@ -41,10 +37,17 @@ def plot_ecg(
         title=title or "ECG",
         height=180 * n_leads,
         margin=dict(l=10, r=10, t=40, b=10),
+        legend=dict(
+            orientation="v",
+            x=1.02,
+            xanchor="left",
+            y=1,
+            yanchor="top",
+        ),
     )
     fig.update_xaxes(title_text="Time", row=n_leads, col=1)
     for r in range(1, n_leads + 1):
-        fig.update_yaxes(title_text="Amplitude", row=r, col=1)
+        fig.update_yaxes(title_text=None, row=r, col=1)
 
     if show:
         fig.show()
